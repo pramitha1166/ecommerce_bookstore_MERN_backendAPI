@@ -8,7 +8,7 @@ exports.signin = (req,res) => {
     User.findOne({email}, (err, user) => {
         if(err || !user) {
             return res.status(400).json({
-                err: "User with tha email does not exist. Please sign up with another email."
+                error: "Please enter valid email and password"
             })
         }
 
@@ -36,7 +36,7 @@ exports.signup = (req,res) => {
     user.save((err,user)=> {
         if(err) {
             return res.status(400).json({
-                err: errorHandler(err)
+                error: errorHandler(err)
             })
         }
         user.salt = undefined

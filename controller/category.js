@@ -7,7 +7,7 @@ exports.createCategory = (req,res) => {
     category.save((err,category) => {
         if(err) {
             return res.status(400).json({
-                error: errorHandler(err)
+                error: 'error: ' + errorHandler(err)
             })
         }
         res.json({category})
@@ -48,7 +48,7 @@ exports.updateCategory = (req,res) => {
     category.save((err,category) => {
         if(err) {
             return res.status(400).json({
-                error: errorHandler(err)
+                error: 'error: ' + errorHandler(err)
             })
         }
         res.json({
